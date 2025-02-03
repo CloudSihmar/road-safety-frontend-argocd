@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: road-frontend
+  labels:
+    app: road-frontend
+spec:
+  replicas: 2  
+  selector:
+    matchLabels:
+      app: road-frontend
+  template:
+    metadata:
+      labels:
+        app: road-frontend
+    spec:
+      containers:
+      - name: road-frontend
+        image: cloudsihmar/road-frontend:latest
+        ports:
+        - containerPort: 80
+---
