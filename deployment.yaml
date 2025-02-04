@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: road-frontend
+  namespace: road-safety
   labels:
     app: road-frontend
 spec:
