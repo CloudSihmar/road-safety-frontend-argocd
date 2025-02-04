@@ -3,6 +3,7 @@ kind: Service
 metadata:
   name: road-frontend
 spec:
+  type: NodePort
   selector:
     app: road-frontend
   ports:
