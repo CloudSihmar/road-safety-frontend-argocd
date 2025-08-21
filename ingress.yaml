@@ -1,19 +1,26 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: road-ingress
+  name: road-frontend-ingress
   namespace: road-safety
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+  annotations: {}
 spec:
   ingressClassName: nginx
   rules:
-  - http:
+  - host: road-safety.com
+    http:
       paths:
       - path: /
         pathType: Prefix
         backend:
           service:
             name: road-frontend
+            port:
+              number: 80
+      - path: /roadwatch/
+        pathType: Prefix
+        backend:
+          service:
+            name: roadwatch-service  # New service for second app
             port:
               number: 80
